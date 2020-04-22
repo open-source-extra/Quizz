@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.quizz.R
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -27,6 +28,7 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this,error,Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            logIn(email,password)
         }
 
     }
@@ -40,4 +42,15 @@ class LoginActivity : AppCompatActivity() {
         }
         return ""
     }
+
+    fun logIn(email: String,password: String){
+        FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
+            .addOnSuccessListener {
+                Toast.makeText(this,"Successfully Logged in",Toast.LENGTH_SHORT).show()
+                return@addOnSuccessListener
+            }
+        return
+    }
+
+
 }
