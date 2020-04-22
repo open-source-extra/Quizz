@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.quizz.R
+import com.example.quizz.views.HomeViewActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -47,6 +48,8 @@ class LoginActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password)
             .addOnSuccessListener {
                 Toast.makeText(this,"Successfully Logged in",Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, HomeViewActivity::class.java)
+                startActivity(intent)
                 return@addOnSuccessListener
             }
         return

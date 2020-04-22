@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.quizz.R
+import com.example.quizz.views.HomeViewActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_sign_up_acitivty.*
 
@@ -53,6 +54,8 @@ class SignUpActivity : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email,password)
             .addOnSuccessListener {
                 Toast.makeText(this,"Success",Toast.LENGTH_SHORT).show()
+                val intent = Intent(this,HomeViewActivity::class.java)
+                startActivity(intent)
                 return@addOnSuccessListener
         }
         return
