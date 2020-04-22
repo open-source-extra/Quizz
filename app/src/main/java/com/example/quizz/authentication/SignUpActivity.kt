@@ -10,10 +10,7 @@ class SignUpActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up_acitivty)
-        transition()
+        //transition()
     }
-    private fun transition(){
-        val intent = Intent(this,LoginActivity::class.java)
-        startActivity(intent)
-    }
+
 }
