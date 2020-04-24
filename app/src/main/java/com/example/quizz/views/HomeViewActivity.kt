@@ -1,8 +1,11 @@
 package com.example.quizz.views
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.quizz.R
+import com.example.quizz.authentication.LoginActivity
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_home_view.*
 
@@ -20,6 +23,11 @@ class HomeViewActivity : AppCompatActivity() {
     }
 
     private fun bindListeners(){
-
+        logout_button.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            Toast.makeText(this,"Successfully logged out",Toast.LENGTH_SHORT).show()
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
