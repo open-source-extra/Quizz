@@ -23,6 +23,7 @@ class NewQuizzCreate : AppCompatActivity() {
         set_exam.setOnClickListener {
             val quizName = exam_name.text.toString()
             val id = radio_privacy.checkedRadioButtonId
+
             FirebaseDatabase.getInstance().reference.setValue(privacy)
 
 
